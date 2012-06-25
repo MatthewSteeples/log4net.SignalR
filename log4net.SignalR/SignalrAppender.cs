@@ -1,5 +1,7 @@
 using System;
 using log4net.Core;
+using SignalR;
+using SignalR.Hubs;
 
 namespace log4net.SignalR
 {
@@ -7,13 +9,11 @@ namespace log4net.SignalR
     {
         private FixFlags _fixFlags = FixFlags.All;
 
-        public Action<LogEntry> MessageLogged;
-
-        public static SignalrAppender Instance { get; private set; }
+        IHubContext hub = null;
 
         public SignalrAppender()
         {
-            Instance = this;
+            hub = GlobalHost.ConnectionManager.GetHubContext<SignalrAppenderHub>();
         }
 
         virtual public FixFlags Fix
@@ -30,11 +30,9 @@ namespace log4net.SignalR
 
             var formattedEvent = RenderLoggingEvent(loggingEvent);
 
-
-            var handler = MessageLogged;
-            if (handler != null)
+            if (hub != null)
             {
-                handler(new LogEntry(formattedEvent, loggingEvent));
+                hub.Clients.OnMessageLogged(new LogEntry(formattedEvent, loggingEvent));
             }
         }
     }

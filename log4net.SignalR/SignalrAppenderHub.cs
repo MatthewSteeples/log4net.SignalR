@@ -6,14 +6,9 @@ namespace log4net.SignalR
 {
     public class SignalrAppenderHub : Hub
     {
-        public SignalrAppenderHub()
-        {
-            SignalrAppender.Instance.MessageLogged = OnMessageLogged;
-        }
-
         public void Listen() { }
 
-        private void OnMessageLogged(LogEntry e)
+        public void OnMessageLogged(LogEntry e)
         {
             var logEventObject = new
             {
