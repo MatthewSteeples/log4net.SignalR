@@ -27,7 +27,7 @@
     $(function () {
         var log4net = $.connection.signalrAppenderHub;
 
-        log4net.onLoggedEvent = function (loggedEvent) {
+        log4net.client.onLoggedEvent = function (loggedEvent) {
             var dateCell = $("<td>").css("white-space", "nowrap").text(loggedEvent.TimeStamp);
             var levelCell = $("<td>").text(loggedEvent.Level);
             var detailsCell = $("<td>").text(loggedEvent.Message);

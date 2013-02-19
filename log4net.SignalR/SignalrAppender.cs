@@ -1,7 +1,6 @@
 using System;
 using log4net.Core;
-using SignalR;
-using SignalR.Hubs;
+using Microsoft.AspNet.SignalR;
 
 namespace log4net.SignalR
 {
@@ -49,7 +48,7 @@ namespace log4net.SignalR
                     e.LoggingEvent.UserName */
                 };
 
-                hub.Clients.onLoggedEvent(logEventObject);
+                hub.Clients.All.onLoggedEvent(logEventObject);
             }
         }
     }
