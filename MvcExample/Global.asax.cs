@@ -18,7 +18,6 @@ namespace MvcExample
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            RouteTable.Routes.MapHubs();
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
@@ -29,7 +28,7 @@ namespace MvcExample
         protected void Application_Start()
         {
             XmlConfigurator.ConfigureAndWatch(new FileInfo(Server.MapPath("~/log4net.config")));
-
+            
             AreaRegistration.RegisterAllAreas();
             RegisterGlobalLoggingFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
