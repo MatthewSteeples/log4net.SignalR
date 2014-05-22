@@ -1,17 +1,25 @@
-<?xml version="1.0"?>
-<package >
-  <metadata>
-    <id>log4net.SignalR</id>
-    <version>$version$</version>
-    <title>log4net.SignalR</title>
-    <authors>Chris Fulstow</authors>
-    <owners>Matthew Steeples</owners>
-    <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
-    <projectUrl>https://github.com/MatthewSteeples/log4net.SignalR</projectUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Log4Net Appender for sending log events from server to browser</description>
-    <releaseNotes>Initial Release</releaseNotes>
-    <copyright>Copyright 2012</copyright>
-    <tags>logging</tags>
-  </metadata>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>log4net.SignalR</id>
+        <version>2.0</version>
+        <title>log4net.SignalR</title>
+        <authors>Chris Fulstow</authors>
+        <owners>Matthew Steeples</owners>
+        <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+        <projectUrl>https://github.com/MatthewSteeples/log4net.SignalR</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Log4Net Appender for sending log events from server to browser</description>
+        <releaseNotes>Updated to SignalR 2.0 and OWIN</releaseNotes>
+        <copyright>Copyright 2014</copyright>
+        <tags>logging</tags>
+        <dependencies>
+            <dependency id="log4net" version="2.0.3" />
+            <dependency id="Microsoft.AspNet.SignalR.Core" version="2.0.3" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="bin\Debug\log4net.SignalR.dll" target="lib\net45\log4net.SignalR.dll" />
+        <file src="bin\Debug\log4net.SignalR.pdb" target="lib\net45\log4net.SignalR.pdb" />
+    </files>
 </package>
