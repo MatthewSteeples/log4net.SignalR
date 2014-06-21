@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>log4net.SignalR</id>
-        <version>2.0</version>
+        <version>2.1.0</version>
         <title>log4net.SignalR</title>
         <authors>Chris Fulstow</authors>
         <owners>Matthew Steeples</owners>
@@ -10,12 +10,12 @@
         <projectUrl>https://github.com/MatthewSteeples/log4net.SignalR</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Log4Net Appender for sending log events from server to browser</description>
-        <releaseNotes>Updated to SignalR 2.0 and OWIN</releaseNotes>
+        <releaseNotes>Updated to SignalR 2.1</releaseNotes>
         <copyright>Copyright 2014</copyright>
         <tags>logging</tags>
         <dependencies>
             <dependency id="log4net" version="2.0.3" />
-            <dependency id="Microsoft.AspNet.SignalR.Core" version="2.0.3" />
+            <dependency id="Microsoft.AspNet.SignalR.Core" version="2.1.0" />
         </dependencies>
     </metadata>
     <files>
