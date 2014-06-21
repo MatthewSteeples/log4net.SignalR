@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using log4net.Config;
 using MvcExample.Infrastructure;
+using System.Reflection;
 
 namespace MvcExample
 {
@@ -27,8 +28,11 @@ namespace MvcExample
 
         protected void Application_Start()
         {
+            Assembly.Load("log4net.SignalR");
             XmlConfigurator.ConfigureAndWatch(new FileInfo(Server.MapPath("~/log4net.config")));
-            
+
+            var errors = log4net.LogManager.GetRepository().ConfigurationMessages;
+
             AreaRegistration.RegisterAllAreas();
             RegisterGlobalLoggingFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
