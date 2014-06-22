@@ -8,13 +8,6 @@ namespace log4net.SignalR
     {
         private FixFlags _fixFlags = FixFlags.All;
 
-        IHubContext hub = null;
-
-        public SignalrAppender()
-        {
-            hub = GlobalHost.ConnectionManager.GetHubContext<SignalrAppenderHub>();
-        }
-
         virtual public FixFlags Fix
         {
             get { return _fixFlags; }
@@ -23,6 +16,8 @@ namespace log4net.SignalR
 
         override protected void Append(LoggingEvent loggingEvent)
         {
+            var hub = GlobalHost.ConnectionManager.GetHubContext<SignalrAppenderHub>();
+            
             // LoggingEvent may be used beyond the lifetime of the Append()
             // so we must fix any volatile data in the event
             loggingEvent.Fix = Fix;
