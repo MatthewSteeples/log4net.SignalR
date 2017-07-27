@@ -1,10 +1,14 @@
-﻿using System.IO;
+﻿#region Using directives
+
+using System.IO;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using log4net.Config;
 using MvcExample.Infrastructure;
-using Microsoft.AspNet.SignalR;
+
+#endregion
+
 
 namespace MvcExample
 {
@@ -20,13 +24,11 @@ namespace MvcExample
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapHubs();
-
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "Log", id = UrlParameter.Optional } // Parameter defaults
-            );
+                );
         }
 
         protected void Application_Start()
@@ -35,6 +37,7 @@ namespace MvcExample
 
             AreaRegistration.RegisterAllAreas();
             RegisterGlobalLoggingFilters(GlobalFilters.Filters);
+
             RegisterRoutes(RouteTable.Routes);
         }
     }
